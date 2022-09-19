@@ -13,6 +13,7 @@ public class ICPC
     private ArrayList<Route> routes = new ArrayList<Route>();
     private HashMap<String, Intersection> intersections = new HashMap<String, Intersection>();
     private ArrayList<Sign> signs = new ArrayList<Sign>();
+    private int signCost;
 
     /**
      * Constructor for objects of class ICPC
@@ -208,6 +209,19 @@ public class ICPC
      */
     public void removeSign(String intersectionA, String intersectionB){
         
+    }
+    
+    /**
+     * Calculates number of signs that are currently present in the system
+     *
+     */
+    public int totalSignCost() {
+        int acc = 0;
+        for (Intersection i : this.Intersections){
+            acc += i.totalAmountOfSigns();
+        }
+        
+        return acc * this.signCost;
     }
 
 }
