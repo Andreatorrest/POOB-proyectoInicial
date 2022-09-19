@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=ICPC
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ICPC\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=length\ width
+comment1.target=ICPC(int,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ ICPC\r\n
+comment2.params=inter
+comment2.target=Intersection\ findIntersection(java.lang.String)
+comment3.params=color\ x\ y
+comment3.target=void\ addIntersection(java.lang.String,\ int,\ int)
+comment3.text=\r\n\ Adds\ a\ new\ intersection\r\n\ \r\n\ @param\ \ color\ \ Used\ to\ identify\ the\ intersection\r\n\ @param\ x\ \ coordinate\ in\ the\ x\ axis\r\n\ @param\ y\ \ coordinate\ in\ the\ y\ axis\r\n
+comment4.params=intersectionA\ intersectionB
+comment4.target=void\ addRoute(java.lang.String,\ java.lang.String)
+comment4.text=\r\n\ Adds\ new\ route\ that\ connects\ intersectionA\ and\ intersectionB.\ This\ route\ is\ bidirectional\r\n\ \r\n\ @param\ \ intersectionA\ \ First\ intersection\r\n\ @param\ \ intersectionA\ \ Second\ intersection\r\n
+comment5.params=intersectionA\ intersectionB\ speedLimit
+comment5.target=void\ putSign(java.lang.String,\ java.lang.String,\ int)
+comment5.text=\r\n\ Adds\ new\ sign\ to\ a\ road\ that\ connects\ intersectionA\ and\ intersectionB.\ The\ sign\ has\ the\ specifie\ speedLimit\r\n\ \r\n\ @param\ \ intersectionA\ \ First\ intersection\r\n\ @param\ \ intersectionA\ \ Second\ intersection\r\n\ @param\ \ speedLimit\ \ \ \ \ The\ speed\ limit\ of\ the\ route\r\n
+comment6.params=color
+comment6.target=void\ delIntersection(java.lang.String)
+comment6.text=\r\n\ Deletes\ an\ intersection\ identified\ by\ its\ color\r\n\ \r\n\ @param\ \ color\ \ The\ color\ of\ the\ intersection\ to\ be\ deleted\r\n
+comment7.params=locationA\ locationB
+comment7.target=void\ delRoute(java.lang.String,\ java.lang.String)
+comment7.text=\r\n\ Deletes\ the\ route\ that\ connects\ locationA\ and\ locationB\r\n\ \r\n\ @param\ \ locationA\ \ First\ intersection\r\n\ @param\ \ locationB\ \ Second\ intersection\r\n
+comment8.params=intersectionA\ intersectionB
+comment8.target=void\ removeSign(java.lang.String,\ java.lang.String)
+comment8.text=\r\n\ Removes\ a\ sign\ of\ the\ road\ that\ connects\ intersectionA\ and\ intersectionB\r\n\ \r\n\ @param\ \ intersectionA\ \ First\ intersection\r\n\ @param\ \ intersectionA\ \ Second\ intersection\r\n
+numComments=9
