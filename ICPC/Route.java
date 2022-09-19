@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 /**
  * Write a description of class Route here.
  *
@@ -8,55 +9,35 @@ import java.util.ArrayList;
 public class Route
 {
     // instance variables - replace the example below with your own
-    private ArrayList<Sign> signs;
-    private Intersection[] intersections;
+    private HashMap<String, Intersection> intersections = new HashMap<String, Intersection>();
+    private int velocidad;
+    private Rectangle route;
+    private Sign señal;
 
     /**
      * Constructor for objects of class Route
      */
-    public Route(Intersection iA, Intersection iB)
+    public Route(Intersection A, Intersection B)
     {
-        this.intersections[0] = iA;
-        this.intersections[1] = iB;
-    }
-
-    
-    /**
-     * Adds a new sign to the route
-     * 
-     * @param  s  The sign to be added
-     */
-    public void newSign(Sign s){
-        this.signs.add(s);
+        this.route = new Rectangle();
+        this.intersections.put(A.getColor(),A);
+        this.intersections.put(B.getColor(),B);
+        route.modifyCoordinates(A.getCoordinatesX(), A.getCoordinatesY());
+        route.changeSize((B.getCoordinatesY() - A.getCoordinatesY()), 10);
+        this.velocidad = 0;
+        
+        
     }
     
-    /**
-     * Returns the intersections that are connected by the route
-     * 
-     */
-    public Intersection[] getIntersections(){
+    public void addSignal(){
+        señal = new Sign(this.velocidad);
+    }
+    
+    public void modifyVelocity(int velocity){
+        this.velocidad = velocity;
+    }
+    
+    public HashMap<String, Intersection> getIntersections(){
         return this.intersections;
     }
-    
-    /**
-     * Returns the sign that specifies the speed limit of the route
-     * 
-     */
-    public ArrayList<Sign> getSigns(){
-        return this.signs;
-    }
-    
-    /**
-     * Adds a sign to the route. The sign specifies the speed limit of the route
-     * @param speedLimit  The speed limit that the sign specifies
-     */
-    public void addSign(int speedLimit){
-        this.signs.add(new Sign(speedLimit));
-    }
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
 }

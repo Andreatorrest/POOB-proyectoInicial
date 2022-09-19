@@ -49,6 +49,11 @@ public class Rectangle{
         isVisible = false;
     }
     
+    public void modifyCoordinates(int x, int y){
+        this.xPosition = x;
+        this.yPosition = y;
+    }
+    
     /**
      * Move the rectangle a few pixels to the right.
      */

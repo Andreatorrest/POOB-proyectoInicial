@@ -1,18 +1,18 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 /**
- * Write a description of class ICPC here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Miguel Angel Gonzalez Mahecha - Andrea Valentina Torres Tobar
+ * @version 18/09/22
  */
+
 public class ICPC
 {
     private int Length;
     private int Width;
     private boolean ok;
-    private ArrayList<Route> Routes = new ArrayList<Route>();
-    private ArrayList<Intersection> Intersections = new ArrayList<Intersection>();
-    private ArrayList<Sign> Signs = new ArrayList<Sign>();
+    private ArrayList<Route> routes = new ArrayList<Route>();
+    private HashMap<String, Intersection> intersections = new HashMap<String, Intersection>();
+    private ArrayList<Sign> signs = new ArrayList<Sign>();
 
     /**
      * Constructor for objects of class ICPC
@@ -22,17 +22,83 @@ public class ICPC
         this.Length = length;
         this.Width = width;
     }
-
-    private Intersection findIntersection(String inter){
-        Intersection iA = null;
-        for (Intersection i : this.Intersections){
-            if (i.getColor() == inter){
-                iA = i;
+    
+    /**
+     * Adds a new route to the intersection
+     * 
+     * @param  intersectionA  The first intersection
+     * intersectionB The second intersection
+     */
+    public void newRoute(String intersectionA, String intersectionB){
+        Route r = new Route(findIntersection(intersectionA), findIntersection(intersectionB));
+        this.routes.add(r);
+    }
+    
+    /**
+     * Find an intersection
+     * 
+     * @param  A  intersections color
+     * @return iA intersection founded
+     */
+    private Intersection findIntersection(String A){
+        Intersection iA = intersections.get(A);
+        return iA;
+    }
+    
+    /**
+     * Delete a route
+     * 
+     * @param  r  route that will be delete
+     * @return boolean if route was deleted
+     */
+    public boolean deleteRoute(Route r){
+        boolean d = false;
+        int index = routes.indexOf(r);
+        if (index == -1){
+            d = false;
+        }
+        else{
+            routes.remove(index);
+            d = true;
+        }
+        return d;
+    }
+    
+    
+    public boolean isConnected(String intersection){
+        boolean c = false;
+        for (Route r : this.routes){
+            if (r.getIntersections().get(intersection) != null){
+                c = true;
             }
         }
-        
-        return iA == null ? null : iA;
+        return c;
     }
+    
+    public Route findRoute(Intersection locationB){
+        for (Route r : this.routes){
+            if (r.getIntersections()[1] == locationB){
+                return r;
+            }
+        }
+        return null;
+    }
+    
+    public void addSpeedLimit(String iB, int speedLimit){
+        for (Route r : this.routes){
+            if (r.getIntersections().get(intersection) != null){
+                r.addSign(speedLimit);
+            }
+        }
+    }
+    /**
+     * Adds a sign to the route. The sign specifies the speed limit of the route
+     * @param speedLimit  The speed limit that the sign specifies
+     */
+    public void addSign(int speedLimit){
+        this.signs.add(new Sign(speedLimit));
+    }
+    
     /**
      * Adds a new intersection
      * 
@@ -42,7 +108,7 @@ public class ICPC
      */
     public void addIntersection(String color, int x, int y){
         Intersection i = new Intersection(color, x, y);
-        this.Intersections.add(i);
+        this.intersections.put(color, i);
         this.ok = true;
     }
     
@@ -143,11 +209,5 @@ public class ICPC
     public void removeSign(String intersectionA, String intersectionB){
         
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+
 }

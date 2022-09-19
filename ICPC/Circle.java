@@ -27,7 +27,18 @@ public class Circle{
         isVisible = false;
     }
 
-
+    public void modifyCoordinates(int x, int y){
+        this.xPosition = x;
+        this.yPosition = y;
+    }
+    
+    public int getCoordinateX(){
+        return this.xPosition;
+    }
+    
+    public int getCoordinateY(){
+        return this.yPosition;
+    }
        
     public void makeVisible(){
         isVisible = true;

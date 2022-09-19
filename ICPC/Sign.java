@@ -8,26 +8,18 @@
 public class Sign
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private int speedLimit;
+    private Triangle señal;
 
     /**
      * Constructor for objects of class Sign
      */
     public Sign(int speedLimit)
     {
-        // initialise instance variables
-        x = 0;
+        this.speedLimit = speedLimit;
+        señal = new Triangle();
+        señal.changeSize(5, 5);
+        señal.changeColor("red");
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
 }
